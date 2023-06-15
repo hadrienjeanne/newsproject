@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>News App</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="jumbotron" style="color:black">
+            <h1 style ="color:white">Latest news</h1>
+        </div>
+
+        <div class="container">
+            {% comment %} {% for new, des, i in mylist %}
+                    <img src="{{ i }}" alt="">
+                    <h1>news:</h1> {{ new }}
+                    {{ value|linebreaks }}
+
+                    <h4>description:</h4>{{ des }}
+                    {{ value|linebreaks }}
+            {% endfor %} {% endcomment %}
+            {% for new, des, i, url, source in mylist %}
+                <div class="row">
+                    <div class="col-md-7">
+                        <a href="{{ url }}">
+                            <img class="img-fluid rounded mb-3 mb-md-0" src="{{ i }}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-md-5">
+                        <h2>{{ source }}</h2>
+                        <h3>{{ new }}</h3>
+                        {{ value|linebreaks }}
+                        <p>{{ des }}</p>
+                        {% comment %} <a class="btn btn-primary" href="#">View Project</a> {% endcomment %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
